@@ -1,3 +1,11 @@
+'''
+Idea:
+Create a set of winning number from the left side of scratchcards and check for each number on the right side, is there any number that exist in the set. 
+
+Complexity: O(nm) (n for set of winning number creation and m for number checking).
+'''
+
+
 file = open("input.txt", "r")
 
 sum = 0

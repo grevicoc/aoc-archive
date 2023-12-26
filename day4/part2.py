@@ -1,3 +1,10 @@
+'''
+Idea:
+Do the checking process like part 1 but we modified the calculation process. Now, we need to store card creation because for each winning number we need to create a copy of card after current card.
+
+Complexity: O(nma) (n for set of winning number creation, m for number checking, and a for iteration of updating store card).
+'''
+
 file = open("input.txt", "r")
 
 mapCard = {}
@@ -45,4 +52,3 @@ for line in file.readlines():
 
 print(mapCard)
 print(sum)    
-    # print(winNums, mineNums)

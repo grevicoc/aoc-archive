@@ -1,3 +1,10 @@
+'''
+Idea:
+It's the same with the part 1 idea, but we need an improvement by checking the substring. Because of that, I create a map and a list to check is there any substring that match the text-number.
+
+Complexity: O(2nm) == O(nm) (n for the iteration process and m for the substring checking)
+'''
+
 mapNum = {
     "one": 1,
     "two": 2,
@@ -46,7 +53,7 @@ for line in file.readlines():
         
         if isBreak:
             break
-    print(tempNum)
+    # print(tempNum)
     num = int(tempNum)
     total += num
 

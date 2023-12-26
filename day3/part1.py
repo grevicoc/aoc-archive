@@ -1,3 +1,10 @@
+'''
+Idea:
+Iterate each characters and if found digit character try to build a number from it. While creation, always check the surround, is there any symbol around it? If not and found non digit character then cancel it, if yes and found non digit character then add the number we have created to the calculation.
+
+Complexity: O(8n) == O(n)
+'''
+
 file = open("input.txt", "r")
 
 idx=0
@@ -26,15 +33,14 @@ arr.append(temp)
 lArr = len(arr)
 lSubArr = len(arr[0])
 
-for i in range (lArr):
-    print(arr[i])
+# for i in range (lArr):
+#     print(arr[i])
 
 num = 0
 isEligible = False
 sum = 0
 for i in range(1,lArr-1,1):
     if num != 0 and isEligible:
-        print("going here! ", num)
         sum += num
         isEligible = False
     num = 0
@@ -42,10 +48,6 @@ for i in range(1,lArr-1,1):
     for j in range (1,lSubArr-1,1):
         if ord(arr[i][j]) >= 48 and ord(arr[i][j]) <= 57:
             num = num*10 + int(arr[i][j])
-            print(num)
-
-            # if isEligible:
-            #     continue
 
             topX, topY = i-1, j
             if ord(arr[topX][topY]) != 46 and (ord(arr[topX][topY]) < 48 or ord(arr[topX][topY]) > 57):
@@ -79,18 +81,14 @@ for i in range(1,lArr-1,1):
             if ord(arr[leftTopX][leftTopY]) != 46 and (ord(arr[leftTopX][leftTopY]) < 48 or ord(arr[leftTopX][leftTopY]) > 57):
                 isEligible = True
         else:
-            # print(isEligible)
             if isEligible:
-                print("going here! ", num)
                 sum += num
                 isEligible = False
-            elif not isEligible and num != 0:
-                print("not going here!", num)
                 
             num = 0
             
 if num != 0 and isEligible:
-    print("going here! ", num)
     sum += num
     isEligible = False
+
 print(sum)

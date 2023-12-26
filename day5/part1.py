@@ -1,3 +1,10 @@
+'''
+Idea:
+First we need to create a container to store the mapping (use map). We dont need to store the whole values of 1-100 in the map, instead just store the offsets. Next, after the map is created, we can use the map to find the end result. For each map, check is there any offset that match the number, if not then the next number is the same, if yes then the next number is the current number + (dst-src).
+
+Complexity: O(nm) (n for the map creation and m for the result finding).
+'''
+
 file = open("test.txt", "r")
 
 seeds = []
@@ -6,7 +13,6 @@ currMap = ""
 
 for line in file.readlines():
     splittedLine = line.split(":")
-    # print(splittedLine)
     if splittedLine[0] == "" or splittedLine[0] == "\n":
         continue
 
@@ -30,8 +36,6 @@ for line in file.readlines():
     elif splittedLine[0] == "humidity-to-location map":
         currMap = "humidity-to-location map"
     else:
-        # print(line)
-        # print(isSeedToSoil)
         nums = line.strip().split(" ")
         dst, src, offset = int(nums[0]), int(nums[1]), int(nums[2])
         if currMap in maps:
@@ -89,8 +93,3 @@ for seed in seeds:
 
 locations.sort()
 print(locations)
-
-
-# print(seedToSoil)
-# print(soilToFertilizer)
-# print(fertilizerToWater)

@@ -1,3 +1,10 @@
+'''
+Idea:
+DISCLAIMER THIS PART IS KINDA FRUSTATING FOR ME HAHAHAHA because my first approach is iterating the ranges. But and then I try to split the range for each offset that exist in each mapping. AND IT WORKS:D. Sorry for the bloated code...
+
+Complexity: O(nm) (n for the map creation and m for the result finding).
+'''
+
 file = open("input.txt", "r")
 
 seeds = []
@@ -6,7 +13,7 @@ currMap = ""
 
 for line in file.readlines():
     splittedLine = line.split(":")
-    # print(splittedLine)
+
     if splittedLine[0] == "" or splittedLine[0] == "\n":
         continue
 
@@ -30,8 +37,6 @@ for line in file.readlines():
     elif splittedLine[0] == "humidity-to-location map":
         currMap = "humidity-to-location map"
     else:
-        # print(line)
-        # print(isSeedToSoil)
         nums = line.strip().split(" ")
         dst, src, offset = int(nums[0]), int(nums[1]), int(nums[2])
         if currMap in maps:
@@ -177,8 +182,6 @@ while idxSeed < len(seeds):
             diff = map[0] - map[1]
 
             if unMappedRange[0] >= lowerBound and unMappedRange[0] <= upperBound:
-                # print("here")
-                # print(unMappedRange[0], unMappedRange[1], lowerBound, upperBound)
                 if upperBound >= unMappedRange[1]:
                     newRangesInput.append([unMappedRange[0] + diff, unMappedRange[1] + diff])
                     unMappedRange = []
@@ -187,8 +190,6 @@ while idxSeed < len(seeds):
                     newRangesInput.append([unMappedRange[0] + diff, upperBound + diff])
                     unMappedRange = [upperBound+1, unMappedRange[1]]
             elif unMappedRange[1] >= lowerBound and unMappedRange[1] <= upperBound:
-                # print("here2")
-                # print(unMappedRange[0], unMappedRange[1], lowerBound, upperBound)
                 if lowerBound <= unMappedRange[0]:
                     newRangesInput.append([unMappedRange[0] + diff, unMappedRange[1] + diff])
                     unMappedRange = []
@@ -211,8 +212,6 @@ while idxSeed < len(seeds):
             diff = map[0] - map[1]
 
             if unMappedRange[0] >= lowerBound and unMappedRange[0] <= upperBound:
-                # print("here")
-                # print(unMappedRange[0], unMappedRange[1], lowerBound, upperBound)
                 if upperBound >= unMappedRange[1]:
                     newRangesInput.append([unMappedRange[0] + diff, unMappedRange[1] + diff])
                     unMappedRange = []
@@ -221,8 +220,6 @@ while idxSeed < len(seeds):
                     newRangesInput.append([unMappedRange[0] + diff, upperBound + diff])
                     unMappedRange = [upperBound+1, unMappedRange[1]]
             elif unMappedRange[1] >= lowerBound and unMappedRange[1] <= upperBound:
-                # print("here2")
-                # print(unMappedRange[0], unMappedRange[1], lowerBound, upperBound)
                 if lowerBound <= unMappedRange[0]:
                     newRangesInput.append([unMappedRange[0] + diff, unMappedRange[1] + diff])
                     unMappedRange = []
@@ -245,8 +242,6 @@ while idxSeed < len(seeds):
             diff = map[0] - map[1]
 
             if unMappedRange[0] >= lowerBound and unMappedRange[0] <= upperBound:
-                # print("here")
-                # print(unMappedRange[0], unMappedRange[1], lowerBound, upperBound)
                 if upperBound >= unMappedRange[1]:
                     newRangesInput.append([unMappedRange[0] + diff, unMappedRange[1] + diff])
                     unMappedRange = []
@@ -255,8 +250,6 @@ while idxSeed < len(seeds):
                     newRangesInput.append([unMappedRange[0] + diff, upperBound + diff])
                     unMappedRange = [upperBound+1, unMappedRange[1]]
             elif unMappedRange[1] >= lowerBound and unMappedRange[1] <= upperBound:
-                # print("here2")
-                # print(unMappedRange[0], unMappedRange[1], lowerBound, upperBound)
                 if lowerBound <= unMappedRange[0]:
                     newRangesInput.append([unMappedRange[0] + diff, unMappedRange[1] + diff])
                     unMappedRange = []

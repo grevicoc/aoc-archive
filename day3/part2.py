@@ -1,3 +1,10 @@
+'''
+Idea:
+Iterate each characters and if found ASTERISK symbol check surroundings. If there are exactly two numbers around the asterisk symbol then add the numbers to the calculation. If not then skip it.
+
+Complexity: O(8nm) == O(nm) (n for total of asterisk in the input and m for the number creation)
+'''
+
 file = open("input.txt", "r")
 
 idx=0
@@ -26,8 +33,8 @@ arr.append(temp)
 lArr = len(arr)
 lSubArr = len(arr[0])
 
-for i in range (lArr):
-    print(arr[i])
+# for i in range (lArr):
+#     print(arr[i])
 
 mapNums = {}
 
@@ -97,7 +104,7 @@ for i in range(1,lArr-1,1):
                 if temp != -999:
                     arrNum.append(temp)
             
-            print(arrNum)
+            # print(arrNum)
 
             if len(arrNum) == 2:
                 sum += arrNum[0] * arrNum[1]
